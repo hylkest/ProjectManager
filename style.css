@@ -1,0 +1,42 @@
+body {
+    background-color: #212529;
+}
+
+.form-add-project {
+    background-color: #2c3034;
+}
+
+h1, h2, h3, p {
+    color: white;
+}
+
+
+.container {
+    margin-top: 10px;
+    background-color: #2c3034;
+}
+
+.navbar {
+    background-color: #2c3034;
+
+}
+
+.nav-link {
+    color: white!important;
+}
+
+.navbar-brand {
+    color: white!important;
+}
+
+.totalrows {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    margin-right: 10px;
+    
+}
+
+.test {
+    display: flex;
+}
