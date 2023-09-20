@@ -10,7 +10,7 @@ if ($_SESSION['loggedin'] != "1" ) {
         <h1 class="is-h1 text-center">Add new project</h1>
         <form class="mt-3" method="post" style="width: 50%;margin:0 auto;">
             <input class="form-control mt-2" type="text" placeholder="Project title" name="title" required>
-            <input class="form-control mt-2" type="text" placeholder="Project Description" name="description" >
+            <input class="form-control mt-2" type="text" placeholder="Project Description" name="description">
             <textarea class="form-control mt-2" placeholder="Project information" name="content"></textarea>
             <input class="form-control mt-2" type="text" placeholder="Project manager" name="author" required>
             <select class="form-control mt-2" name="category">

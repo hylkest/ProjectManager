@@ -18,17 +18,7 @@ if (isset($_POST['login'])) {
     $emaillogin = $_POST['emaillogin'];
     $passwordlogin = ($_POST['passwordlogin']);
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "root";
-    $dbname = "docs";
-
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    // Check connection
-    if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-    }
+    require_once 'connect.php';
 
     $sql = "SELECT * FROM users WHERE email='$emaillogin'";
     $result = $conn->query($sql);

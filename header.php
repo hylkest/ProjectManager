@@ -44,5 +44,3 @@ if ($_SESSION['isadmin'] === "1" ) {
         </div>
     </div>
 </nav>
-
-<!-- test -->

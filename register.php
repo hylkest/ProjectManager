@@ -20,12 +20,7 @@
 <?php 
 
 if (isset($_POST['submit'])) {
-    $servername = "localhost";
-    $username = "root";
-    $password = "root";
-    $dbname = "docs";
-
-// Form variables
+    // Form variables
     $companyname = $_POST['companyname'];
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
@@ -33,13 +28,7 @@ if (isset($_POST['submit'])) {
     $passwordform = $_POST['password'];
     $password_hashed = password_hash($passwordform, PASSWORD_DEFAULT);
 
-
-// Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+    require_once 'connect.php';
 
     $sql = "INSERT INTO users (company_name, firstname, lastname, email, password)
 VALUES ('$companyname', '$firstname', '$lastname', '$email', '$password_hashed')";

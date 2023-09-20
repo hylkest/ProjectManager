@@ -7,17 +7,7 @@ if ($_SESSION['loggedin'] != "1" ) {
 /*
 @todo MAKE FILTER FOR THE PROJECTS
 */
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "docs";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+require_once 'connect.php';
 
 $sql = "SELECT * FROM topics";
 $result = $conn->query($sql);
