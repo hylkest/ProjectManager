@@ -11,7 +11,7 @@ if ($_SESSION['loggedin'] != "1" ) {
         <form class="mt-3" method="post" style="width: 50%;margin:0 auto;">
             <input class="form-control mt-2" type="text" placeholder="Project title" name="title" >
             <input class="form-control mt-2" type="text" placeholder="Project Description" name="description" >
-            <textarea class="form-control mt-2" placeholder="Content" name="Project information"></textarea>
+            <textarea class="form-control mt-2" placeholder="Project information" name="Project information"></textarea>
             <input class="form-control mt-2" type="text" placeholder="Project manager" name="author">
             <select class="form-control mt-2" name="category">
                 <option selected disabled>Category</option>
