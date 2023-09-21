@@ -3,14 +3,14 @@
 <html>
     <div>
         <form class="mt-3" method="post" style="width: 50%;margin:0 auto;">
-            <input class="form-control mt-2" type="text" name="companyname" placeholder="Company">
+            <input class="form-control mt-2" type="text" name="companyname" placeholder="Company" required>
             <div class="test">
-                <input class="form-control mt-2" type="text" name="firstname" placeholder="Firstname">
-                <input class="form-control mt-2" type="text" name="lastname" placeholder="Lastname">
+                <input class="form-control mt-2" type="text" name="firstname" placeholder="Firstname" required>
+                <input class="form-control mt-2" type="text" name="lastname" placeholder="Lastname" required>
             </div>
             <div class="test">
-                <input class="form-control mt-2" type="email" name="email" placeholder="Email">
-                <input class="form-control mt-2" type="password" name="password" placeholder="Password">
+                <input class="form-control mt-2" type="email" name="email" placeholder="Email" required>
+                <input class="form-control mt-2" type="password" name="password" placeholder="Password" required>
             </div>
             <input class="form-control mt-2 btn btn-primary" type="submit" name="submit">
         </form>
