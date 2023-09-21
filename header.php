@@ -17,26 +17,25 @@ if ($_SESSION['isadmin'] === "1" ) {
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/test/index.php">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/test/list.php">List</a>
+                    <a class="nav-link active" aria-current="page" href="/projectmanager/index.php">Home</a>
                 </li>
                 <?php
 
                 if ($_SESSION['isadmin'] === "1" ) {
                     echo "<li class='nav-item'>
-                    <a class='nav-link' href='/test/adminpanel.php'>Admin</a>
+                    <a class='nav-link' href='/projectmanager/adminpanel.php'>Admin</a>
                 </li>";
                 }
 
                 if ($_SESSION['loggedin'] === "1" ) {
                     echo "<li class='nav-item'>
-                    <a class='nav-link' href='/test/logout.php'>Logout</a>
+                    <a class='nav-link' href='/projectmanager/list.php'>List</a>
+                </li><li class='nav-item'>
+                    <a class='nav-link' href='/projectmanager/logout.php'>Logout</a>
                 </li>";
                 } else {
                     echo "<li class='nav-item'>
-                    <a class='nav-link' href='/test/login.php'>Log in</a>
+                    <a class='nav-link' href='/projectmanager/login.php'>Log in</a>
                 </li>";
                 }
                 ?>
