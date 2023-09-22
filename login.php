@@ -29,6 +29,7 @@ if (isset($_POST['login'])) {
         echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
         if ($emaillogin === $row['email'] && password_verify($passwordlogin, $row['password'])) {
             echo "logged in";
+            $_SESSION['account_id'] = $row["id"];
             $_SESSION['loggedin'] = "1";
             $_SESSION['isadmin'] = $row['is_admin'];
             echo $_SESSION['loggedin'];

@@ -21,6 +21,7 @@ if ($_SESSION['loggedin'] != "1" ) {
                 <option value="Intranet">Intranet</option>
                 <option value="Webshop">Webshop</option>
                 <option value="Ticketshop">Ticketshop</option>
+                <option value="Overig">Overig</option>
             </select>
             <input class="form-control mt-2 btn btn-primary" type="submit" name="submit">
         </form>
@@ -75,45 +76,51 @@ $con = mysqli_connect("localhost", "root", "root", "docs");
 $sql = "SELECT * from topics";
 if ($result = mysqli_query($con, $sql)) {
     $rowcount = mysqli_num_rows($result);
-    echo "<div class='totalrows'><h1 class='text-center' style='border: 3px solid white;width:110px;margin:10px auto;'>".$rowcount."</h1>
+    echo "<div class='row1'><div class='totalrows'><h1 class='text-center' style='border: 3px solid white;width:110px;margin:10px auto;padding: 20px 20px 20px 20px;border-radius:50%;'>".$rowcount."</h1>
     <h3 class='text-center'>Total projects</h3></div>";
 }
 $con = mysqli_connect("localhost", "root", "root", "docs");
 $sql = "SELECT * from topics WHERE project_category='Onepager'";
 if ($result = mysqli_query($con, $sql)) {
     $rowcount = mysqli_num_rows($result);
-    echo "<div class='totalrows'><h1 class='text-center' style='border: 3px solid white;width:110px;margin:10px auto;'>".$rowcount."</h1>
-    <h3 class='text-center'>Onepagers</h3></div>";
+    echo "<div class='totalrows'><h1 class='text-center' style='border: 3px solid white;width:110px;margin:10px auto;padding: 20px 20px 20px 20px;border-radius:50%;'>".$rowcount."</h1>
+    <h3 class='text-center'>Onepagers</h3></div></div>";
 }
 $sql = "SELECT * from topics WHERE project_category='Narrowcasting'";
 if ($result = mysqli_query($con, $sql)) {
     $rowcount = mysqli_num_rows($result);
-    echo "<div class='totalrows'><h1 class='text-center' style='border: 3px solid white;width:110px;margin:10px auto;'>".$rowcount."</h1>
+    echo "<div class='row2'><div class='totalrows'><h1 class='text-center' style='border: 3px solid white;width:110px;margin:10px auto;padding: 20px 20px 20px 20px;border-radius:50%;'>".$rowcount."</h1>
     <h3 class='text-center'>Narrowcastings</h3></div>";
 }
 $sql = "SELECT * from topics WHERE project_category='Website'";
 if ($result = mysqli_query($con, $sql)) {
     $rowcount = mysqli_num_rows($result);
-    echo "<div class='totalrows'><h1 class='text-center' style='border: 3px solid white;width:110px;margin:10px auto;'>".$rowcount."</h1>
-    <h3 class='text-center'>Website</h3></div>";
+    echo "<div class='totalrows'><h1 class='text-center' style='border: 3px solid white;width:110px;margin:10px auto;padding: 20px 20px 20px 20px;border-radius:50%;'>".$rowcount."</h1>
+    <h3 class='text-center'>Website</h3></div></div>";
 }
 $sql = "SELECT * from topics WHERE project_category='Ticketshop'";
 if ($result = mysqli_query($con, $sql)) {
     $rowcount = mysqli_num_rows($result);
-    echo "<div class='totalrows'><h1 class='text-center' style='border: 3px solid white;width:110px;margin:10px auto;'>".$rowcount."</h1>
+    echo "<div class='row3'><div class='totalrows'><h1 class='text-center' style='border: 3px solid white;width:110px;margin:10px auto;padding: 20px 20px 20px 20px;border-radius:50%;'>".$rowcount."</h1>
     <h3 class='text-center'>Ticketshops</h3></div>";
 }
 $sql = "SELECT * from topics WHERE project_category='Intranet'";
 if ($result = mysqli_query($con, $sql)) {
     $rowcount = mysqli_num_rows($result);
-    echo "<div class='totalrows'><h1 class='text-center' style='border: 3px solid white;width:110px;margin:10px auto;'>".$rowcount."</h1>
-    <h3 class='text-center'>Intranets</h3></div>";
+    echo "<div class='totalrows'><h1 class='text-center' style='border: 3px solid white;width:110px;margin:10px auto;padding: 20px 20px 20px 20px;border-radius:50%;'>".$rowcount."</h1>
+    <h3 class='text-center'>Intranets</h3></div></div>";
 }
 $sql = "SELECT * from topics WHERE project_category='Webshop'";
 if ($result = mysqli_query($con, $sql)) {
     $rowcount = mysqli_num_rows($result);
-    echo "<div class='totalrows'><h1 class='text-center' style='border: 3px solid white;width:110px;margin:10px auto;'>".$rowcount."</h1>
+    echo "<div class='row4'><div class='totalrows'><h1 class='text-center' style='border: 3px solid white;width:110px;margin:10px auto;padding: 20px 20px 20px 20px;border-radius:50%;'>".$rowcount."</h1>
     <h3 class='text-center'>Webshops</h3><div>";
+}
+$sql = "SELECT * from topics WHERE project_category='Overig'";
+if ($result = mysqli_query($con, $sql)) {
+    $rowcount = mysqli_num_rows($result);
+    echo "<div class='totalrows'><h1 class='text-center' style='border: 3px solid white;width:110px;margin:10px auto;padding: 20px 20px 20px 20px;border-radius:50%;'>".$rowcount."</h1>
+    <h3 class='text-center'>Overig</h3><div></div>";
 }
 mysqli_close($con);
 ?>
