@@ -7,6 +7,9 @@
         <input type="text" placeholder="main link to delete" name="delete_link">
         <input type="submit" name="delete">
     </form>
+    <form method="post">
+        <input type="submit" name="all_links">
+    </form>
 </html>
 
 <?php
@@ -27,12 +30,12 @@ if (isset($_POST['submit'])) {
     $sql = "SELECT * FROM links WHERE main_link='$link'";
     $result = $conn->query($sql);
     $num_results = mysqli_num_rows($result);
-    echo "<b>" .$num_results. "Resultaten</b><br><br>";
+    echo "<b>" .$num_results. " Resultaten</b><br><br>";
 
     if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "Main link: ".$row['main_link']."<br>Link: ".$row['link_name'];
+        echo "<br>Link: ".$row['link_name'];
     }
     } else {
     echo "0 results";
@@ -65,6 +68,35 @@ if (isset($_POST['delete'])) {
     echo "Error deleting record: " . $conn->error;
     }
 
+    $conn->close();
+}
+
+if (isset($_POST['all_links'])) {
+    $servername = "localhost";
+    $username = "root";
+    $password = "root";
+    $dbname = "links";
+
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Check connection
+    if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+    }
+
+    $sql = "SELECT * FROM links";
+    $result = $conn->query($sql);
+    $num_results = mysqli_num_rows($result);
+    echo "<b>" .$num_results. " Resultaten</b><br><br>";
+
+    if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "<br>Link: ".$row['link_name'];
+    }
+    } else {
+    echo "0 results";
+    }
     $conn->close();
 }
 ?>
