@@ -21,7 +21,7 @@ if ($result->num_rows > 0) {
             <input type="text" class="form-control mt-2" name="settings_name" placeholder="Naam" value="<?php echo $row['firstname'];?>">
             <input type="text" class="form-control mt-2" name="settings_lastname" placeholder="Achternaam" value="<?php echo $row['lastname'];?>">
             <input type="text" class="form-control mt-2" name="settings_email" placeholder="Email" value="<?php echo $row['email'];?>">
-            <!-- <input type="text" class="form-control mt-2" name="settings_bedrijf" placeholder="Bedrijf" value="<?php echo $row['company_name'];?>"> -->
+            <!-- <input type="text" class="form-control mt-2" name="settings_bedrijf" placeholder="Bedrijf" value="<?php //echo $row['company_name'];?>"> -->
             <input type="submit" class="form-control mt-2 btn btn-primary" name="settings_update" value="Update">
         </form>
     </div>
@@ -44,8 +44,10 @@ if (isset($_POST['settings_update'])) {
         WHERE id = '$account_id'";
 
     if ($conn->query($sql) === TRUE) {
-    echo "Record updated successfully";
-    header('Location: settings.php');
+    echo "<div style='margin: 0 auto;width: 25%;' class='alert alert-primary text-center mt-3' role='alert'>
+    Profile updated succesfully
+  </div>";
+    //header('Location: settings.php');
     echo "done";
     } else {
     echo "Error updating record: " . $conn->error;

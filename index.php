@@ -23,12 +23,14 @@ if ($_SESSION['loggedin'] != "1" ) {
                 <option value="Ticketshop">Ticketshop</option>
                 <option value="Overig">Overig</option>
             </select>
+            <input class="form-control mt-2" type="text" placeholder="Project expenses" name="project_expenses">
+            <input class="form-control mt-2" type="text" placeholder="Expected yield" name="expected_yield">
             <input class="form-control mt-2 btn btn-primary" type="submit" name="submit">
         </form>
     </div>
 </body>
 </html>
-
+ssaaaaaaaa
 <?php
 
 if (isset($_POST['submit'])) {
@@ -43,6 +45,8 @@ if (isset($_POST['submit'])) {
     $content = $_POST['content'];
     $author = $_POST['author'];
     $category = $_POST['category'];
+    $expenses = $_POST['project_expenses'];
+    $expected_yield = $_POST['expected_yield'];
 
 
 // Create connection
@@ -52,8 +56,8 @@ if (isset($_POST['submit'])) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $sql = "INSERT INTO topics (project_title, project_small_desc, project_content, project_manager, project_category)
-VALUES ('$title', '$desc', '$content', '$author', '$category')";
+    $sql = "INSERT INTO topics (project_title, project_small_desc, project_content, project_manager, project_category, project_expenses, expected_yield)
+VALUES ('$title', '$desc', '$content', '$author', '$category', '$expenses', '$expected_yield')";
 
     if ($conn->query($sql) === TRUE) {
         echo "<div style='margin: 0 auto;width: 25%;' class='alert alert-primary text-center mt-3' role='alert'>

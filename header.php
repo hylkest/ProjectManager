@@ -32,6 +32,8 @@ if ($_SESSION['isadmin'] === "1" ) {
                     <a class='nav-link' href='/projectmanager/list.php'>List</a>
                 </li><li class='nav-item'>
                     <a class='nav-link' href='/projectmanager/logout.php'>Logout</a>
+                </li><li class='nav-item'>
+                <a class='nav-link' href='/projectmanager/settings.php'>Profile settings</a>
                 </li>";
                 } else {
                     echo "<li class='nav-item'>
