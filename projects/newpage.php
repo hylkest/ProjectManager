@@ -12,20 +12,13 @@ $_SESSION['id'] = $_POST['newpageid'];
 // Check if file exists. if not, make a new page (file)
 if (!file_exists($filename)) {
     $myfile = fopen($filename, "w");
-    $txt = "
-    <?php require_once '../header.php';
-        require_once '../function.php';
-        ?>
-
-        <div class='container form-add-project mt-5 p-5'>
-            <h1 class='is-h1 text-center'>Project info</h1>
-            <h2>". $_POST['newpageid']."</h2>
-        </div>
-
-    <?php
-     ?>
-    ";
-
+    $content = fopen('pagecontent.txt', 'r');
+    while (!feof($content)) {
+        $file_content .= fread($content, 8192); 
+    }
+    fclose($content); // Close the file
+        //echo $file_content; // Output the content to the screen
+    $txt = $file_content;
     fwrite($myfile, $txt);
     fclose($myfile);
 

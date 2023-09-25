@@ -1,0 +1,50 @@
+    <?php require_once '../header.php';
+        $servername = "localhost";
+        $username = "root";
+        $password = "root";
+        $dbname = "docs";
+
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        $id = $_SESSION['id'];
+
+        $sql = "SELECT * FROM topics WHERE project_id='$id'";
+        $result = mysqli_query($conn, $sql);
+
+        if (mysqli_num_rows($result) > 0) {
+            // output data of each row
+            while($row = mysqli_fetch_assoc($result)) {
+    
+
+        ?>
+
+        <div class='container form-add-project mt-5 p-5'>
+            <h1 class='is-h1 text-center'>Project info</h1>
+            <form method='get'>
+                <input type='text' class="form-control mt-2" name='project_name' value='<?php echo $row['project_title']; ?>'>
+                <input type='text' class="form-control mt-2" name='project_desc' value='<?php echo $row['project_small_desc']; ?>'>
+                <input type='text' class="form-control mt-2" name='project_content' value='<?php echo $row['project_content']; ?>'>
+                <input type='text' class="form-control mt-2" name='project_manager' value='<?php echo $row['project_manager']; ?>'>
+                <input type='text' class="form-control mt-2" name='project_status' value='<?php echo $row['project_status']; ?>'>
+                <input type='text' class="form-control mt-2" name='project_category' value='<?php echo $row['project_category']; ?>' disabled>
+                <input type='text' class="form-control mt-2" name='project_expenses' value='<?php echo $row['project_expenses']; ?>'>
+                <input type='text' class="form-control mt-2" name='expected_yield' value='<?php echo $row['expected_yield']; ?>'>
+                <input type='text' class="form-control mt-2" name='project_date_added' value='<?php echo $row['project_date']; ?>' disabled>
+                <input type='submit' class="btn btn-primary mt-2" name='project_update' value='Update'>
+            </form>
+        </div>
+
+
+        <?php
+            }
+        }
+        else {
+            echo "0 results";
+        }   
+
+        mysqli_close($conn);
