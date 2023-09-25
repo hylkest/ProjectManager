@@ -25,7 +25,7 @@ $basepath = "/projectmanager/"
 
                 if ($_SESSION['isadmin'] === "1" ) {
                     echo "<li class='nav-item'>
-                    <a class='nav-link' href='/projectmanager/adminpanel.php'>Admin</a>
+                    <a class='nav-link' href='".$basepath."adminpanel.php'>Admin</a>
                 </li>";
                 }
 
