@@ -17,7 +17,6 @@ if (!file_exists($filename)) {
         $file_content .= fread($content, 8192); 
     }
     fclose($content); // Close the file
-        //echo $file_content; // Output the content to the screen
     $txt = $file_content;
     fwrite($myfile, $txt);
     fclose($myfile);

@@ -15,13 +15,7 @@ if ($_SESSION['loggedin'] != "1" ) {
             <input class="form-control mt-2" type="text" placeholder="Project manager" name="author" required>
             <select class="form-control mt-2" name="category">
                 <option selected disabled>Category</option>
-                <option value="Onepager">Onepager</option>
-                <option value="Narrowcasting">Narrowcasting</option>
-                <option value="Website">Website</option>
-                <option value="Intranet">Intranet</option>
-                <option value="Webshop">Webshop</option>
-                <option value="Ticketshop">Ticketshop</option>
-                <option value="Overig">Overig</option>
+                <?php include_once 'products.php'; ?>
             </select>
             <input class="form-control mt-2" type="text" placeholder="Project expenses" name="project_expenses">
             <input class="form-control mt-2" type="text" placeholder="Expected yield" name="expected_yield">
