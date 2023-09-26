@@ -1,7 +1,7 @@
-    <?php require_once '../header.php';
-        require_once '../connect.php';
+    <?php require_once 'header.php';
+        require_once 'connect.php';
 
-        $id = $_SESSION['id'];
+        $id = $_GET['newpageid'];
 
         $sql = "SELECT * FROM topics WHERE project_id='$id'";
         $result = mysqli_query($conn, $sql);
@@ -15,7 +15,7 @@
 
         <div class='container form-add-project mt-5 p-5'>
             <h1 class='is-h1 text-center'>Project info</h1>
-            <form method='get'>
+            <form method='post'>
                 <input type='text' class="form-control mt-2" name='project_name' value='<?php echo $row['project_title']; ?>'>
                 <input type='text' class="form-control mt-2" name='project_desc' value='<?php echo $row['project_small_desc']; ?>'>
                 <input type='text' class="form-control mt-2" name='project_content' value='<?php echo $row['project_content']; ?>'>
@@ -37,4 +37,36 @@
             echo "0 results";
         }   
 
-        mysqli_close($conn);
+        //mysqli_close($conn);
+
+        if (isset($_POST['project_update'])) {
+            $project_title = $_POST['project_name'];
+            $project_small_desc = $_POST['project_desc'];
+            $project_content = $_POST['project_content'];
+            $project_manager = $_POST['project_manager'];
+            $project_status = $_POST['project_status'];
+            // $project_category = $_POST['project_category'];
+            $project_expenses = $_POST['project_expenses'];
+            $expected_yield = $_POST['expected_yield'];
+
+            echo $project_title;
+
+            // $settings_bedrijf = $_POST['settings_bedrijf'];
+        
+            $sql = "UPDATE topics 
+                SET project_title = '$project_title', project_small_desc = '$project_small_desc', project_content = '$project_content', project_manager = '$project_manager', project_status = '$project_status', project_expenses = '$project_expenses', expected_yield = '$expected_yield'  
+                WHERE project_id = '$id'";
+        
+            if ($conn->query($sql) === TRUE) {
+            echo "<div style='margin: 0 auto;width: 25%;' class='alert alert-primary text-center mt-3' role='alert'>
+            Project updated succesfully
+          </div>";
+            //header('Location: settings.php');
+            echo "done";
+            } else {
+            echo "Error updating record: " . $conn->error;
+            }
+        
+            $conn->close();
+        }
+        
