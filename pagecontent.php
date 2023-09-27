@@ -45,13 +45,8 @@
             $project_content = $_POST['project_content'];
             $project_manager = $_POST['project_manager'];
             $project_status = $_POST['project_status'];
-            // $project_category = $_POST['project_category'];
             $project_expenses = $_POST['project_expenses'];
             $expected_yield = $_POST['expected_yield'];
-
-            echo $project_title;
-
-            // $settings_bedrijf = $_POST['settings_bedrijf'];
         
             $sql = "UPDATE topics 
                 SET project_title = '$project_title', project_small_desc = '$project_small_desc', project_content = '$project_content', project_manager = '$project_manager', project_status = '$project_status', project_expenses = '$project_expenses', expected_yield = '$expected_yield'  
@@ -62,7 +57,6 @@
             Project updated succesfully
           </div>";
             //header('Location: settings.php');
-            echo "done";
             } else {
             echo "Error updating record: " . $conn->error;
             }

@@ -24,7 +24,6 @@ if ($_SESSION['loggedin'] != "1" ) {
     </div>
 </body>
 </html>
-ssaaaaaaaa
 <?php
 
 if (isset($_POST['submit'])) {
@@ -42,6 +41,12 @@ if (isset($_POST['submit'])) {
     $expenses = $_POST['project_expenses'];
     $expected_yield = $_POST['expected_yield'];
 
+    if (!ctype_digit($expenses)) {
+        echo "<div style='margin: 0 auto;width: 25%;' class='alert alert-primary text-center mt-3' role='alert'>
+    You didn't fill in a number.
+    </div>";
+    }
+
 
 // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -58,7 +63,7 @@ VALUES ('$title', '$desc', '$content', '$author', '$category', '$expenses', '$ex
   New project created successfully
 </div>";
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        //echo "Error: " . $sql . "<br>" . $conn->error;
     }
 
     $conn->close();
@@ -74,7 +79,7 @@ $con = mysqli_connect("localhost", "root", "root", "docs");
 $sql = "SELECT * from topics";
 if ($result = mysqli_query($con, $sql)) {
     $rowcount = mysqli_num_rows($result);
-    echo "<div class='row1'><div class='totalrows'><h1 class='text-center' style='border: 3px solid white;width:100px;margin:10px auto;padding: 20px 20px 20px 20px;border-radius:50%;'>".$rowcount."</h1>
+    echo "<div class='subrow'><div class='row1'><div class='totalrows'><h1 class='text-center' style='border: 3px solid white;width:100px;margin:10px auto;padding: 20px 20px 20px 20px;border-radius:50%;'>".$rowcount."</h1>
     <h3 class='text-center'>Total projects</h3></div>";
 }
 $con = mysqli_connect("localhost", "root", "root", "docs");
@@ -88,18 +93,18 @@ $sql = "SELECT * from topics WHERE project_category='Narrowcasting'";
 if ($result = mysqli_query($con, $sql)) {
     $rowcount = mysqli_num_rows($result);
     echo "<div class='row2'><div class='totalrows'><h1 class='text-center' style='border: 3px solid white;width:100px;margin:10px auto;padding: 20px 20px 20px 20px;border-radius:50%;'>".$rowcount."</h1>
-    <h3 class='text-center'>Narrowcastings</h3></div>";
+    <h3 class='text-center'>Narrowcastings</h3></div></div>";
 }
 $sql = "SELECT * from topics WHERE project_category='Website'";
 if ($result = mysqli_query($con, $sql)) {
     $rowcount = mysqli_num_rows($result);
-    echo "<div class='totalrows'><h1 class='text-center' style='border: 3px solid white;width:100px;margin:10px auto;padding: 20px 20px 20px 20px;border-radius:50%;'>".$rowcount."</h1>
-    <h3 class='text-center'>Website</h3></div></div>";
+    echo "<div class='totalrows tt2'><h1 class='text-center' style='border: 3px solid white;width:100px;margin:10px auto;padding: 20px 20px 20px 20px;border-radius:50%;'>".$rowcount."</h1>
+    <h3 class='text-center'>Website</h3></div></div></div>";
 }
 $sql = "SELECT * from topics WHERE project_category='Ticketshop'";
 if ($result = mysqli_query($con, $sql)) {
     $rowcount = mysqli_num_rows($result);
-    echo "<div class='row3'><div class='totalrows'><h1 class='text-center' style='border: 3px solid white;width:100px;margin:10px auto;padding: 20px 20px 20px 20px;border-radius:50%;'>".$rowcount."</h1>
+    echo "<div class='subrow2'><div class='row3'><div class='totalrows'><h1 class='text-center' style='border: 3px solid white;width:100px;margin:10px auto;padding: 20px 20px 20px 20px;border-radius:50%;'>".$rowcount."</h1>
     <h3 class='text-center'>Ticketshops</h3></div>";
 }
 $sql = "SELECT * from topics WHERE project_category='Intranet'";
