@@ -20,6 +20,7 @@ if ($result->num_rows > 0) {
     <div style="display: flex;">
         <form method="post" style="display: flex; margin-right:10px;margin-left:10px;">
             <select class="form-control">
+                <option value="All" selected>All</option>
                 <?php include_once 'products.php' ?>
             </select>
             <input class="btn btn-primary" style="margin-left: 5px;" type="submit" name="filter" value="Filter">

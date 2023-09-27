@@ -53,10 +53,10 @@
                 WHERE project_id = '$id'";
         
             if ($conn->query($sql) === TRUE) {
+            header('Location: pagecontent.php?newpageid='.$id.'&newpage=Edit');
             echo "<div style='margin: 0 auto;width: 25%;' class='alert alert-primary text-center mt-3' role='alert'>
             Project updated succesfully
           </div>";
-            //header('Location: settings.php');
             } else {
             echo "Error updating record: " . $conn->error;
             }
