@@ -132,3 +132,6 @@ mysqli_close($con);
 </div>
 </html>
 
+<?php 
+require_once 'footer.php'; 
+?>
