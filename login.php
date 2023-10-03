@@ -28,7 +28,6 @@ if (isset($_POST['login'])) {
     while($row = $result->fetch_assoc()) {
         echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
         if ($emaillogin === $row['email'] && password_verify($passwordlogin, $row['password'])) {
-            echo "logged in";
             $_SESSION['account_id'] = $row["id"];
             $_SESSION['loggedin'] = "1";
             $_SESSION['isadmin'] = $row['is_admin'];
@@ -40,8 +39,13 @@ if (isset($_POST['login'])) {
         }
     }
     } else {
-    echo "0 results";
-    echo $sql;
+        echo "<div class='alert alert-danger' role='alert' style='width: 15%;
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 10px;'>
+        ERROR: Login invalid
+      </div>";
+    //echo $sql;
     }
     $conn->close();
 }
